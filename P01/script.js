@@ -21,43 +21,58 @@ function showSuccess(input) {
 }
 
 // Functio to check if email is valid
-function isValidEmail(email) {
+function CheckEmail(input) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    if ( re.test(input.value.trim()) )  {
+        showSuccess(input);
+    } else {
+        showError(input, `Please provide a valid email`)
+    }
+}
+
+// Function to check if required fields have data
+function checkRequired(inputArray) {
+    inputArray.forEach(function(input) {
+       if ( input.value === '' ) {
+           console.log(input.id);  
+           showError(input,`${getFieldId(input)} is required`);
+       } else {
+           showSuccess(input);
+       }     
+    });
+}
+
+// Function to check lenght of input field
+function CheckLength(input, min, max) {
+    if ( input .value.length <min ){
+        showError(input,`${getFieldId(input)} needs to be at least ${min} characters`);
+    } else if (input.value.length > max) {
+        showError(input,`${getFieldId(input)} needs to be less than ${max} characters`);
+    } else {
+        showSuccess(input);
+    }
+}
+
+
+// Function to check if password and confirm password match
+function CheckPasswordsMatch(input1, input2) {
+    if ( input1.value !== input2.value ) {
+        showError(input2,"Passwords don't match")
+    }
+}
+
+// Function to get the id of the input field with proper case
+function getFieldId(input) {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
 // This is an avent listener for the form on submit
 form.addEventListener('submit',function(e) {
     e.preventDefault();
-    
-    
-    if ( username.value === '' ) {
-        showError(username,'username is required')
-    }else {
-        showSuccess(username);
-    }
 
-   
-
-    if ( email.value === '' ) {
-        showError(email,'email is required');
-    } else if (!isValidEmail(email)) {
-        showError(email,'Email is invalid')
-    }else {
-        showSuccess(email);
-    }
-    
-
-
-    if ( password.value === '' ) {
-        showError(password,'password is required')
-    }else {
-        showSuccess(password);
-    }
-
-    if ( password2.value === '' ) {
-        showError(password2,'confirm password is required')
-    }else {
-        showSuccess(password2);
-    }
+    checkRequired([username,email,password,password2]);
+    CheckLength(username,3,10);
+    CheckLength(password,6,30);
+    CheckEmail(email);
+    CheckPasswordsMatch(password,password2);
 })
