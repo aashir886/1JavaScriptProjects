@@ -20,21 +20,34 @@ function showSuccess(input) {
     formControl.className = 'form-control success';
 }
 
+// Functio to check if email is valid
+function isValidEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
 // This is an avent listener for the form on submit
 form.addEventListener('submit',function(e) {
     e.preventDefault();
+    
     
     if ( username.value === '' ) {
         showError(username,'username is required')
     }else {
         showSuccess(username);
     }
+
+   
+
     if ( email.value === '' ) {
-        showError(email,'email is required')
+        showError(email,'email is required');
+    } else if (!isValidEmail(email)) {
+        showError(email,'Email is invalid')
     }else {
         showSuccess(email);
     }
     
+
 
     if ( password.value === '' ) {
         showError(password,'password is required')
