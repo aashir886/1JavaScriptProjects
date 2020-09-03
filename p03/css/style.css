@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-    color: white;
+    color: rgba(20, 1, 1, 0.884);
 }
 
 .screen {
@@ -27,13 +27,13 @@ h1 {
 }
 
 .controls {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.349);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 60%;
-    padding: 15px;
+    padding: 5px;
 }
 
 .btn {
@@ -47,11 +47,11 @@ h1 {
 }
 
 .fa-play {
-    color: greenyellow;
+    color: rgb(237, 241, 231);
 }
 
 .fa-stop {
-    color: red;
+    color: rgba(10, 10, 10, 0.664);
 }
 
 .fa-pause {
