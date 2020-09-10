@@ -20,6 +20,11 @@ body {
     margin: 20px 0;
 }
 
+#movie:hover {
+    color:rgba(223, 22, 22, 0.719);
+}
+
+
 .movie-container select {
     background-color: whaite;
     border: 0;
