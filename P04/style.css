@@ -40,7 +40,7 @@ p {
 }
 
 .money-img {
-    width: 150px;
+    width: 150px;0
 }
 
 .currency {
@@ -51,9 +51,10 @@ p {
 }
 
 .currency select {
-    padding: 10px 12px;
-    border: 1px solid lightgray;
+    padding: 10px 20px;
+    border: 1px solid lightgrey;
     font-size: 16px;
+    width: 50%;
 }
 
 .currency input {
@@ -62,7 +63,7 @@ p {
     color: white;
     font-size: 28px;
     text-align: right;
-    width: 100px;
+    width: 50%;
 }
 
 .flip-container {
