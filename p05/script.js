@@ -17,10 +17,6 @@ generateRandomUser();
 
 
 
-
-
-
-
 // Function to fetch Rendom user from API
 // API: randomuser.me/api
 async function generateRandomUser() {
@@ -71,26 +67,10 @@ function calculateTotalNetWorth() {
 
 
 
-
-
-
-
-
-
-
-
     const totalNetWorthElement = document.createElement('div');
     totalNetWorthElement.innerHTML = `<h3>Total Net Worth: <strong>${formatCurrency(totalWorth)}</strong></h3>`;
     main.appendChild(totalNetWorthElement);
 }
-
-
-
-
-
-
-
-
 
 
 

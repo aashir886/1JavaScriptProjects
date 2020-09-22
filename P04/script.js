@@ -11,31 +11,32 @@ const rate = document.getElementById('rate');
 function calculate() {
     const currencyOneCode = currOnePicker.value;
     const currencyTwoCode = currTwoPicker.value;
-    
-    fetch(`https://v6.exchangerate-api.com/v6/fb751910517b2821c6b1f4b8/latest/${currencyOneCode}`)
-        .then( res => res.json() )
-        .then( data => {
-            // Get the exchange rate from API data
 
-            const exchangeRate = data.conversion_rates[currencyTwoCode];
+    fetch(`https://v6.exchangerate-api.com/v6/8bf19e698513dbb353fc2076/latest/${currencyOneCode}`)
+    .then( res => res.json() )
+    .then( data => {
+     
+         const exchangeRate = data.conversion_rates[currencyTwoCode];
             
+         //Display the conversion rate
+         rate.innerText = `1 ${currencyOneCode} = ${exchangeRate} ${currencyTwoCode}`;
 
-            // Display the conversion Rates 
-            rate.innerText =`1 ${currencyOneCode} = ${exchangeRate} ${currencyTwoCode}`;
-
-            // Apply Conversion Rate and update Amount of currency
-            currTwoAmount.value = (currOneAmount.value * exchangeRate).toFixed(2);
-
-        });
+         //Apply conversion rate and update amount of currency
+         currTwoAmount.value = (currOneAmount.value * exchangeRate).toFixed(2);
+    });
 }
 
+
+
+
+
 // Flip function for the flip button to reverse currency exchange 
-function flip() {
-    const temp = currOnePicker.value;
-    currOnePicker.value = currTwoPicker.value;
-    currTwoPicker.value = temp;
-    calculate();
-};
+ function flip() {
+     const temp = currOnePicker.value;
+     currOnePicker.value = currTwoPicker.value;
+     currTwoPicker.value = temp;
+     calculate();
+ };
 
 // EventListners 
 currOnePicker.addEventListener('change', calculate);
@@ -47,4 +48,4 @@ flipButton.addEventListener('click', flip);
 
 
 
-calculate()
+calculate();
