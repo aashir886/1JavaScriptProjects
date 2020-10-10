@@ -17,6 +17,8 @@ function searchMeal(e) {
     const term = search.value;
     
     
+
+
     
     
     
@@ -69,6 +71,23 @@ function getMealById(mealID) {
 
 
 
+
+
+// Function create to Random meal :)
+function getMealRandom() {
+    fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+        .then( res => res.json() )
+        .then( data => {
+            console.log(`DATA: ${data}`);
+            const meal = data.meals[0];
+            addMealToDOM(meal);
+        })
+}
+
+
+
+
+
 // function to add a meal to DOM
 function addMealToDOM(meal) {
     const ingredients = [];
@@ -115,6 +134,10 @@ function addMealToDOM(meal) {
 //Event Listners
 // 1. Submit 
 submit.addEventListener('submit', searchMeal);
+
+
+
+
 
 
 
