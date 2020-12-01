@@ -9,8 +9,6 @@ body {
         0deg,
         rgba(255,255,255,1),
         rgba(150,150,255,1)
-        
-        
     );
     height: 100vh;
     display: flex;
@@ -20,7 +18,6 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
 }
-
 
 .music-container {
     background-color: white;
@@ -61,7 +58,7 @@ body {
     transform: translate(-50%,100%);
 }
 
-.music-container.play .img-container img{
+.music-container.play .img-container img {
     animation-play-state: running;
 }
 
@@ -73,7 +70,7 @@ body {
 }
 
 .action-btn {
-    background-color: whitesmoke;
+    background-color: white;
     border: 0;
     color: lightgray;
     font-size: 24px;
@@ -92,7 +89,7 @@ body {
 }
 
 .music-info {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255,255,255,0.5);
     border-radius: 15px 15px 0 0;
     position: absolute;
     top: 0;
@@ -101,12 +98,12 @@ body {
     width: calc(100% - 40px);
     transform: translateY(0%);
     opacity: 0;
-    transition: transform 0.5 ease-in opacity 0.5s ease-in;
+    transition: transform 0.5s ease-in, opacity 0.5s ease-in;
     z-index: 0;
 }
 
 .music-container.play .music-info {
-    opacity: 100;
+    opacity: 1;
     transform: translateY(-100%);
 }
 
@@ -124,25 +121,13 @@ body {
 }
 
 .progress {
-    background-color: lightblue;
+    background-color: lightskyblue;
     height: 100%;
     width: 0;
     transition: width 0.1s linear;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
- @keyframes rotate {
+@keyframes rotate {
     from {
         transform: rotate(0deg);
     }
