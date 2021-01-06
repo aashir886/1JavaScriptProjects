@@ -118,14 +118,25 @@ body {
     
 }
 
+.start h1 {
+    position: absolute;
+    top: 100px;
+    left: 70px;
+    text-align: center;
+    width: max-content;
+}
+
 
  button {
     cursor: pointer;
     /* background-color: rgb(108, 173, 173); */
-    padding: 2px 5px;
+    padding: 5px 20px;
     position: relative;
-    top: 40%;
-    left: 42%;
+    top: 47%;
+    justify-content: center;
+    left: 38%;
+    font-size: 16px;
     transform: translate scale(-0.9);
 }
+
 
